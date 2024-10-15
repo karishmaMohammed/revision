@@ -1,0 +1,19 @@
+Important Note Points
+
+Using delete() leaves undefined holes in the array.
+
+instead use pop() or shift() instead.
+pop() => removes last element in array
+shift() => removes first element in array
+
+CONCATINATION method
+
+The concat() method does not change the existing arrays. 
+It always returns a new array.
+
+The concat() method can take any number of array arguments.
+Example
+const arr1 = ["Cecilie", "Lone"];
+const arr2 = ["Emil", "Tobias", "Linus"];
+const arr3 = ["Robin", "Morgan"];
+const myChildren = arr1.concat(arr2, arr3); // output =>[Cecilie","Lone, Emil", "Tobias", "Linus","Robin", "Morgan"]
