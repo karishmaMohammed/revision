@@ -163,3 +163,29 @@ async function getDriveFilesToUpload(req, res) {
 }
 
 
+const mongoose = require('mongoose');
+
+const attributesCreationSchema = mongoose.Schema({
+
+    organization_id: { type: mongoose.Types.ObjectId,
+        ref: "org_details",   required: true  },
+      type: {
+        type: String,
+        enum: ['ebom', 'mbom'],
+        default: "" 
+      }, //ebom, mbom
+      attribute_title: { type: String},
+      options: { type: [String], default: [] },
+      is_active: { type: Boolean},
+    //  data: { type: mongoose.Schema.Types.Mixed }, 
+},
+{
+  timestamps: true,  
+});
+
+attributesCreationSchema.index({organization_id:1});
+
+
+const attributesModel = mongoose.model('attributes', attributesCreationSchema);
+
+module.exports = { attributesModel }
